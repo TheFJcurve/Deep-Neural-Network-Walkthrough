@@ -1,7 +1,7 @@
 from keras import models
 from keras import layers
 from keras import optimizers
-from keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image import ImageDataGenerator ## for data augmentation (explaination down below)
 import matplotlib.pyplot as plt
 from dog_cat_kaggle_convnet_preparring_data import train_dir, validation_dir
 
@@ -25,6 +25,10 @@ model.compile(loss='binary_crossentropy',
               optimizer=optimizers.RMSprop(learning_rate=1e-4),
               metrics=['acc'])
 
+## This is one new component, Data Augmentation! The fact is, when we have a limited number of data, we can morph or
+## modify the images to create new images. Like flip the image horizontally, or invert colors, or rotate them a bit.
+## For a neural network, these are new images! And for us, this is a lot less headache of new content!!!. I have linked
+## a video in the README file that explains this better.
 train_datagen = ImageDataGenerator(rescale=1./255,
                                    rotation_range=40,
                                    width_shift_range=0.2,
@@ -35,8 +39,8 @@ train_datagen = ImageDataGenerator(rescale=1./255,
 
 test_datagen = ImageDataGenerator(rescale=1./255)
 
-train_generator = train_datagen.flow_from_directory(train_dir,
-                                                    target_size=(150, 150),
+train_generator = train_datagen.flow_from_directory(train_dir, ## Takes your train_directory and adds that to your
+                                                    target_size=(150, 150), ## augmented data
                                                     batch_size=20,
                                                     class_mode='binary')
 
@@ -45,7 +49,9 @@ validation_generator = test_datagen.flow_from_directory(validation_dir,
                                                         batch_size=20   ,
                                                         class_mode='binary')
 
-num_epochs = 10
+## Set this to the number of epochs you wish to have. I will set this to 100 as a default, but that takes a long long
+## time to process, for a more quicker result and conclusion, set it to something like 10.
+num_epochs = 100
 
 history = model.fit(train_generator,
                     steps_per_epoch=100,
@@ -75,4 +81,3 @@ plt.title('Training and Validation loss')
 plt.legend()
 
 plt.show()
-
