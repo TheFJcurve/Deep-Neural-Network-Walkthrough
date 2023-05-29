@@ -1,3 +1,5 @@
+# Keras and TensorFlow
+
 # DeepLearningWithPython
 I believe that mathematics and programming go hand in hand, and even diehard programmers should have mathematical intuition of what they are working on. I will try to boil down the basics of maths so that we can have the 'Ohh I see' moment without the yawn. It's not magic, it's just linear algebra!
 
@@ -15,9 +17,9 @@ While going through the textbook, I noticed that some codes were not functioning
 
 StatQuest with Josh Starmer has a good video explaining what **cross entropy** actually is (BAM!!!): [(Watch the video!)](https://youtu.be/6ArSys5qHAU)
 
-_IMDB_Example.py
-Reuters_Example.py
-Boston_Housing_Example.py_
+_IMDB_Example.py_
+_Reuters_Example.py_
+_Boston_Housing_Example.py_
 
 ## Chapter 4:
  
@@ -34,10 +36,10 @@ I felt that the learning of Convnet was highly theoritical in the book, so I am 
 
 . I will give you a little explaination of **Dropouts**. Randomly, a percentage of the 'neurons' in each layer are deactivated, and the model is trained on the remaining active 'neurons'. This makes sure that the 'neurons' don't rely on just one preceeding neuron. Imagine it like this, if you can take money from 4 people, but at any time any one can default out, then you will make sure that you will not fully rely on any singular person for money. Similarly, this practice makes sure that the 'neuron' has significant connections with the preceeding 'neurons'. That way, any overfitting (or as the creater called it 'conspiracies') is avoided.
 
-_MNIST_dataset_example(using basic convnet).py
-dog_cat_kaggle_convnet_preparring_data.py
-dog_cat_kaggle_convnet.py
-dog_cat_kaggle_vgg16.py_
+_MNIST_dataset_example(using basic convnet).py_
+_dog_cat_kaggle_convnet_preparring_data.py_
+_dog_cat_kaggle_convnet.py_
+_dog_cat_kaggle_vgg16.py_
 
 ## Chapter 6:
 
